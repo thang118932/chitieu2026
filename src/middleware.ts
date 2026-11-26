@@ -21,7 +21,9 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  const { data: { user } } = await supabase.auth.getUser();
+  // getClaims kiểm tra token ngay tại chỗ (không gọi mạng) → nhanh hơn getUser
+  const { data } = await supabase.auth.getClaims();
+  const user = data?.claims;
   const isPublic = PUBLIC_PATHS.some((p) => request.nextUrl.pathname.startsWith(p));
 
   if (!user && !isPublic) {
