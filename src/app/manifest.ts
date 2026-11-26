@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Khoai Chip – Chi tiêu gia đình",
-    short_name: "Khoai Chip",
+    name: "Thắng Huế – Chi tiêu gia đình",
+    short_name: "Thắng Huế",
     description: "Quản lý chi tiêu gia đình",
     lang: "vi",
     start_url: "/",

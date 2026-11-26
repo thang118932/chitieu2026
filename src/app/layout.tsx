@@ -9,9 +9,9 @@ const font = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Khoai Chip",
+  title: "Thắng Huế",
   description: "Quản lý chi tiêu gia đình",
-  appleWebApp: { capable: true, title: "Khoai Chip", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "Thắng Huế", statusBarStyle: "default" },
   formatDetection: { telephone: false },
 };
 

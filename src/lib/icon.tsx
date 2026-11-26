@@ -41,11 +41,11 @@ export function renderIcon(size: number) {
             alignItems: "center",
             justifyContent: "center",
             color: "white",
-            fontSize: 20 * s,
+            fontSize: 17 * s,
             fontWeight: 700,
           }}
         >
-          K
+          TH
         </div>
       </div>
     ),

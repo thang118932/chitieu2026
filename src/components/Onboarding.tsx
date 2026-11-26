@@ -28,7 +28,7 @@ export default function Onboarding() {
     <main className="min-h-dvh max-w-md mx-auto p-4 flex flex-col justify-center gap-4">
       <div className="text-center mb-2">
         <div className="text-5xl">🍟</div>
-        <h1 className="text-2xl font-bold mt-2">Chào mừng tới Khoai Chip!</h1>
+        <h1 className="text-2xl font-bold mt-2">Chào mừng tới Thắng Huế!</h1>
         <p className="text-zinc-500 text-sm">Tạo sổ chi tiêu cho gia đình, hoặc tham gia sổ của người thân.</p>
       </div>
 

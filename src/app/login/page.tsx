@@ -66,7 +66,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm rounded-2xl bg-white dark:bg-zinc-900 shadow-lg p-6 space-y-5">
         <div className="text-center">
           <div className="text-5xl">🍟</div>
-          <h1 className="text-2xl font-bold mt-2">Khoai Chip</h1>
+          <h1 className="text-2xl font-bold mt-2">Thắng Huế</h1>
           <p className="text-sm text-zinc-500">Quản lý chi tiêu gia đình</p>
         </div>
 
