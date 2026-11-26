@@ -19,6 +19,8 @@ export default function SettingsView({ family, userEmail, categories, members }:
   const [famName, setFamName] = useState(family.name);
   const [newCat, setNewCat] = useState({ icon: "📌", name: "", type: "expense" as TxType });
   const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const [pwMsg, setPwMsg] = useState("");
 
   async function act(p: PromiseLike<{ error: { message: string } | null }>) {
     setError("");
@@ -26,6 +28,18 @@ export default function SettingsView({ family, userEmail, categories, members }:
     if (error) setError(error.message);
     else router.refresh();
     return !error;
+  }
+
+  async function setNewPassword(e: React.FormEvent) {
+    e.preventDefault();
+    setPwMsg("");
+    setError("");
+    const { error } = await supabase.auth.updateUser({ password });
+    if (error) setError(error.message);
+    else {
+      setPassword("");
+      setPwMsg("✅ Đã lưu mật khẩu. Lần sau đăng nhập bằng email + mật khẩu.");
+    }
   }
 
   async function copyCode() {
@@ -112,6 +126,18 @@ export default function SettingsView({ family, userEmail, categories, members }:
             </select>
             <button className="rounded-xl bg-amber-500 text-white px-3">Thêm</button>
           </form>
+        </section>
+
+        <section className={`${card} space-y-2`}>
+          <h2 className="font-semibold">🔒 Mật khẩu đăng nhập</h2>
+          <p className="text-sm text-zinc-500">Đặt mật khẩu để đăng nhập không cần chờ email.</p>
+          <form className="flex gap-2" onSubmit={setNewPassword}>
+            <input type="password" minLength={6} required autoComplete="new-password" value={password}
+              onChange={(e) => setPassword(e.target.value)} placeholder="Mật khẩu mới (≥ 6 ký tự)"
+              className={`${input} flex-1 min-w-0`} />
+            <button className="rounded-xl bg-amber-500 text-white px-4">Lưu</button>
+          </form>
+          {pwMsg && <p className="text-sm text-green-600">{pwMsg}</p>}
         </section>
 
         {error && <p className="text-sm text-red-500 text-center">{error}</p>}
