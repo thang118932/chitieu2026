@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { Pencil, Plus, Trash2 } from "lucide-react";
+import { useSave } from "@/lib/useSave";
 import { createClient } from "@/lib/supabase/client";
 import { formatNumber, formatVND, parseAmount, todayVN } from "@/lib/format";
 import type { Category, HuiGroup, HuiPayment } from "@/lib/types";
@@ -113,22 +113,6 @@ export default function PhuongView({ familyId, groups, payments, savingCategory 
       <BottomNav />
     </div>
   );
-}
-
-function useSave(onClose: () => void) {
-  const router = useRouter();
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState("");
-  async function run(fn: () => PromiseLike<{ error: { message: string } | null }>) {
-    setBusy(true);
-    setError("");
-    const { error } = await fn();
-    setBusy(false);
-    if (error) return setError(error.message);
-    router.refresh();
-    onClose();
-  }
-  return { busy, error, run };
 }
 
 function GroupForm({ familyId, group, onClose }: { familyId: string; group?: HuiGroup; onClose: () => void }) {

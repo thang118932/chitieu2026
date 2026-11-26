@@ -47,6 +47,26 @@ export type HuiPayment = {
   note: string | null;
 };
 
+export type Kid = {
+  id: string;
+  family_id: string;
+  name: string;
+  emoji: string;
+  color: string;
+  weekly_amount: number;
+  sort_order: number;
+};
+
+export type AllowanceEntry = {
+  id: string;
+  kid_id: string;
+  date: string;
+  type: "in" | "out";
+  amount: number;
+  note: string | null;
+  created_at: string;
+};
+
 export type Member = {
   user_id: string;
   role: "owner" | "member";
