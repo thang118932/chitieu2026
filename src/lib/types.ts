@@ -29,6 +29,24 @@ export type Transaction = {
   created_at: string;
 };
 
+export type HuiGroup = {
+  id: string;
+  family_id: string;
+  name: string;
+  schedule: string | null;
+  slots: number;
+  sort_order: number;
+};
+
+export type HuiPayment = {
+  id: string;
+  group_id: string;
+  seq: number;
+  date: string | null;
+  amount: number; // tiền 1 suất
+  note: string | null;
+};
+
 export type Member = {
   user_id: string;
   role: "owner" | "member";
